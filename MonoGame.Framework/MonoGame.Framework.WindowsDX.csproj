@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFramework>net45</TargetFramework>
+    <TargetFrameworks>net452;netcoreapp3.0</TargetFrameworks>
     <DefineConstants>WINDOWS;XNADESIGNPROVIDED;STBSHARP_INTERNAL</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Description>MonoGame is an open source implementation of the Microsoft XNA 4.x Framework. The goal is to make it easy for XNA developers to create cross-platform games with extremely high code reuse.
@@ -63,16 +63,18 @@ This package provides you with MonoGame Framework that uses DirectX for renderin
     <Content Include="MonoGame.Framework.WindowsDX.targets" PackagePath="build" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
+  <PropertyGroup>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
 
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\net40\SharpDX.dll" />
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\SharpDX.Direct2D1.dll" />
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\SharpDX.Direct3D11.dll" />
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\SharpDX.DXGI.dll" />
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\net40\SharpDX.MediaFoundation.dll" />
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\net40\SharpDX.XAudio2.dll" />
-    <Reference Include="..\ThirdParty\Dependencies\SharpDX\net40\SharpDX.XInput.dll" />
+  <ItemGroup>
+    <PackageReference Version="4.0.1" Include="SharpDX" />
+    <PackageReference Version="4.0.1" Include="SharpDX.Direct2D1" />
+    <PackageReference Version="4.0.1" Include="SharpDX.Direct3D11" />
+    <PackageReference Version="4.0.1" Include="SharpDX.DXGI" />
+    <PackageReference Version="4.0.1" Include="SharpDX.MediaFoundation" />
+    <PackageReference Version="4.0.1" Include="SharpDX.XAudio2" />
+    <PackageReference Version="4.0.1" Include="SharpDX.XInput" />
   </ItemGroup>
 
   <Import Project="Platform\DirectX.targets" />
